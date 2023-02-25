@@ -3,26 +3,31 @@ import dbConnect from '@/utils/dbConnect'
 
 dbConnect()
 
-
 export default async function (req, res) {
-    const {method} = req
+    const {method,query:{id}} = req
 
-    // get post all
+    // get post
+    
     switch (method) {
-        case 'GET':
+        case 'PUT':
             try {
-                const nav = await navbar.find({})
+                const nav = await navbar.findByIdAndUpdate(id,req.body)
+
+                if (!nav) {
+                    res.status(400).json({succes:false})
+                }
+
                 res.status(200).json(nav)
             } catch (error) {
-                res.status(404).json({error : 'error 1 '})
+                res.status(404).json({error : 'error bro'})
             }
             break;
 
-            // post a new item
 
-            case 'POST':
+
+            case 'DELETE':
                 try {
-                    const nav = await navbar.create(req.body)
+                    const nav = await navbar.deleteOne({_id:id})
                     res.status(200).json(nav)
                 } catch (error) {
                     res.status(404).json({error : 'error '})
