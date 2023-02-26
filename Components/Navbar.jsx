@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import { easeInOut, motion } from "framer-motion"
  
-const Navbar = ({navbars}) => {
+const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 

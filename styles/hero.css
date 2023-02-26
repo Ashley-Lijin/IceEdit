@@ -22,13 +22,22 @@
         @apply text-transparent bg-clip-text bg-gradient-to-r from-[#3BBAC2] to-white hover:from-white hover:to-[#3BBAC2] 
     }
     .button{
-        @apply mb-48
+        @apply mb-36 flex gap-12
     }
     .btn{
-        @apply flex border-[#3BBAC2] border-2 h-[75px] w-[75px] rounded-full items-center justify-center text-[#3BBAC2]
+        @apply flex border-[#3BBAC2] border-2 h-[75px] w-[75px] rounded-full items-center justify-center text-[#3BBAC2] hover:scale-105 duration-300
     }
     .stage-cointainer{
         @apply flex 
     }
 
+}
+
+
+.button:hover > .btn{
+    opacity: 0.3;
+}
+
+.button:hover > .btn:hover{
+    opacity: 1;
 }

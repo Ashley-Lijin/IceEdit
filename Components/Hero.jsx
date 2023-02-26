@@ -18,7 +18,19 @@ const Hero = () => {
       })
   }, [])
 
-  console.log(hero);
+  const [soc, setSoc] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/socialMedia")
+      .then(res =>{
+       setSoc(res.data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+
+  console.log(soc);
 
   return (
     <div className='stage-cointainer'>
@@ -38,9 +50,13 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className='button'>
-                        <div className='btn'>
-                            <SocialIcon fgColor='#3BBAC2' bgColor='transparent' url='https://www.youtube.com/' />
-                        </div>
+                        {soc.map(socM => {
+                            return(
+                            <div className='btn'>
+                                <SocialIcon fgColor='#3BBAC2' bgColor='transparent' url={socM.Url} />
+                            </div>
+                            )
+                        })}
                     </div>
                 </div>
             )
