@@ -11,7 +11,7 @@ export default async function (req, res) {
     switch (method) {
         case 'PUT':
             try {
-                const heros = await heros.findByIdAndUpdate(id,req.body)
+                const heros = await hero.findByIdAndUpdate(id,req.body)
 
                 if (!heros) {
                     res.status(400).json({succes:false})
