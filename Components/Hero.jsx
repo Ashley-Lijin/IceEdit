@@ -2,6 +2,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios';
 import { SocialIcon } from 'react-social-icons';
+import { motion } from "framer-motion"
 
 const Hero = () => {
 
@@ -38,26 +39,26 @@ const Hero = () => {
             return(
                 <div className='main hero'>
                     <div className='main'>
-                        <div className='about'>
+                        <motion.div initial={{opacity:0,y:-100}} whileInView={{opacity:1,y:0}} transition={{duration:0.5}} className='about'>
                             <div className='about-him gap-1'>
                                 <h1 className='text-white'>{H.intro} </h1>
                                 <h1 className='name'>{H.name}</h1>
                             </div>
                             <h1 className='text-white'>{H.youAre}</h1>
-                        </div>
-                        <div>
+                        </motion.div>
+                        <motion.div initial={{opacity:0,y:-100}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} >
                             <img src={H.heroImg} className='hero-img-warp' />
-                        </div>
+                        </motion.div>
                     </div>
-                    <div className='button'>
+                    <motion.div initial={{opacity:0,y:25,rotatex:180}} whileInView={{opacity:1,y:0,rotatex:0}}transition={{duration:1 ,delay:0.3}} className='button'>
                         {soc.map(socM => {
                             return(
                             <div className='btn'>
-                                <SocialIcon fgColor='#3BBAC2' bgColor='transparent' url={socM.Url} />
+                                <SocialIcon fgColor='#3BBAC2' bgColor='transparent' key={socM._id} url={socM.Url} />
                             </div>
                             )
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             )
         })}
