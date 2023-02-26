@@ -6,3 +6,5 @@ const socialScheema = new mongoose.Schema({
         require:true
     }
 })
+
+module.exports = mongoose.models.ScoialMedia || mongoose.model('ScoialMedia',socialScheema)
