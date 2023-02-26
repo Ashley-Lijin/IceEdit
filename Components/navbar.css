@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components  {
+    .menu-bg{
+        @apply absolute w-screen backdrop-blur-sm bg-white/5
+    }
+    .menu-mob{
+        @apply flex text-white flex-col visible md:hidden 
+    }
+    .mob-head{
+        @apply flex justify-between items-center w-[90%] mx-auto
+    }
+    .logo-warp{
+        @apply flex items-center
+    }
+    .text-warp {
+        @apply text-[24px] font-normal
+    }
+    .nav-item {
+        @apply text-[18px] font-normal opacity-90 hover:opacity-100 duration-300
+    }
+    .nav-i-mob{
+        @apply  selection:visible md:hidden py-3
+    }
+    .nav-box{
+        @apply p-8
+    }
+    .nav-i {
+        @apply flex flex-col justify-center items-center text-white
+    }
+    .img-warp {
+        @apply h-[50px] w-[50px]
+    }
+    .res{
+        @apply hidden md:flex
+    }
+    .menu-pc{
+        @apply  items-center justify-between max-h-12 w-[95%] mx-auto text-white p-3
+    }
+    .nav-i-pc{
+        @apply px-3
+    }
+}

@@ -2,8 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Link from 'next/link';
-
+import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+ 
 const Navbar = ({navbars}) => {
+
+  const [showMenu, setShowMenu] = useState(false);
 
   const [nav, setnav] = useState([])
 
@@ -16,27 +19,66 @@ const Navbar = ({navbars}) => {
         console.log(err);
       })
   }, [])
+
   
 console.log(nav);
+
   return (
-    <div className='flex items-center justify-between max-h-12 w-[95%] mx-auto'>
+    <header>    
+      <div className='menu-bg'>
+        <div className='res menu-pc'>
 
-      <div className='flex items-center'>
-        <img src="/art.png" className='h-[50px] w-[50px]' draggable='false'/>
-        <h3 className='text-[24px] font-semibold' >Ice Edit</h3>
-      </div>
-
-      <div className='flex'>
-      {nav.map(navabr => {
-        return(
-          <div className='px-3 text-[18px] font-semibold'>
-            <Link href={navabr.navUrl}>{navabr.navItem}</Link>
+        <div className='logo-warp'>
+            <img src="/art.png" className='img-warp' draggable='false'/>
+            <h3 className='text-warp' >Ice Edit</h3>
           </div>
-        )
-      })}
+
+          <div className='res'>
+          {nav.map(navabr => {
+            return(
+              <div className='nav-i-pc nav-item'>
+                <Link href={navabr.navUrl}>{navabr.navItem}</Link>
+              </div>
+            )
+          })}
+          </div>
+        </div>
       </div>
-      
-    </div>
+
+       {/* mob */}
+
+      <div className='menu-bg menu-mob'>
+
+          <div className='mob-head'>
+            <div className='logo-warp'>
+              <img src="/art.png" className='img-warp' draggable='false'/>
+              <h3 className='text-warp' >Ice Edit</h3>
+            </div>
+
+            <div>
+              <div>
+                  {showMenu ? <AiOutlineClose className='burger-btn' size={25} onClick={() => setShowMenu(!showMenu)}/> : <AiOutlineMenu className='burger-btn' size={25} onClick={() => setShowMenu(!showMenu)}/>}
+              </div>
+            </div>
+          </div>
+
+          {showMenu && (
+          <div className='nav-box'>
+            <div className='nav-i'>
+            {nav.map(navabr => {
+              return(
+                <div className='nav-i-mob nav-item'>
+                  <Link href={navabr.navUrl}>{navabr.navItem}</Link>
+                </div>
+              )
+            })}
+            </div>
+          </div>
+          )}
+
+      </div>
+    </header>
+
   )
 }
 
