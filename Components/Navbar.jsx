@@ -19,7 +19,7 @@ const Navbar = ({navbars}) => {
       .catch(err => {
         console.log('err');
       })
-  }, [nav])
+  }, [])
   
   const [logo, setlogo] = useState([])
 
@@ -32,7 +32,7 @@ const Navbar = ({navbars}) => {
       .catch(err => {
         console.log('err');
       })
-  }, [logo])
+  }, [])
 
   return (
     <header>    
