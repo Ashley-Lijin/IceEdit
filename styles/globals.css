@@ -5,3 +5,6 @@
 @import url('../Components/navbar.css'); 
 
 
+html{
+    overflow: hidden;
+}

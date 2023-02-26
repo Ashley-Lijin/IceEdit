@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Link from 'next/link';
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+import { easeInOut, motion } from "framer-motion"
  
 const Navbar = ({navbars}) => {
 
@@ -28,12 +29,12 @@ console.log(nav);
       <div className='menu-bg'>
         <div className='res menu-pc'>
 
-        <div className='logo-warp'>
+        <motion.div initial={{opacity:0,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
             <img src="/art.png" className='img-warp' draggable='false'/>
             <h3 className='text-warp' >Ice Edit</h3>
-          </div>
+          </motion.div>
 
-          <div className='res'>
+          <motion.div initial={{opacity:0,x:100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}}  className='res'>
           {nav.map(navabr => {
             return(
               <div className='nav-i-pc nav-item'>
@@ -41,7 +42,7 @@ console.log(nav);
               </div>
             )
           })}
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -63,7 +64,7 @@ console.log(nav);
           </div>
 
           {showMenu && (
-          <div className='nav-box'>
+          <motion.div initial={{opacity:0,y:-15}} whileInView={{opacity:1,y:0}} transition={{duration:0.5}} className='nav-box'>
             <div className='nav-i'>
             {nav.map(navabr => {
               return(
@@ -73,7 +74,7 @@ console.log(nav);
               )
             })}
             </div>
-          </div>
+          </motion.div>
           )}
 
       </div>
