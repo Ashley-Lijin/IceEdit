@@ -20,19 +20,32 @@ const Navbar = ({navbars}) => {
         console.log(err);
       })
   }, [])
-
   
-console.log(nav);
+  const [logo, setlogo] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/logo")
+      .then(res =>{
+        setlogo(res.data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
 
   return (
     <header>    
       <div className='menu-bg'>
         <div className='res menu-pc'>
 
-        <motion.div initial={{opacity:0,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
-            <img src="/art.png" className='img-warp' draggable='false'/>
-            <h3 className='text-warp' >Ice Edit</h3>
-          </motion.div>
+          {logo.map(brand => {
+            return(
+              <motion.div initial={{opacity:0,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
+              <img src={brand.imgUrl} className='img-warp' draggable='false'/>
+              <h3 className='text-warp'>{brand.Name}</h3>
+            </motion.div>
+            )
+          })}
 
           <motion.div initial={{opacity:0,x:100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}}  className='res'>
           {nav.map(navabr => {
@@ -51,15 +64,19 @@ console.log(nav);
       <div className='menu-bg menu-mob'>
 
           <div className='mob-head'>
-            <div className='logo-warp'>
-              <img src="/art.png" className='img-warp' draggable='false'/>
-              <h3 className='text-warp' >Ice Edit</h3>
-            </div>
+            {logo.map(brand => {
+              return(
+                <motion.div initial={{opacity:0,x:-25}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
+                  <img src={brand.imgUrl} className='img-warp' draggable='false'/>
+                  <h3 className='text-warp' >{brand.Name}</h3>
+                </motion.div>
+              )
+            })}
 
             <div>
-              <div>
+              <motion.div initial={{opacity:0,x:25}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}}>
                   {showMenu ? <AiOutlineClose className='burger-btn' size={25} onClick={() => setShowMenu(!showMenu)}/> : <AiOutlineMenu className='burger-btn' size={25} onClick={() => setShowMenu(!showMenu)}/>}
-              </div>
+              </motion.div>
             </div>
           </div>
 

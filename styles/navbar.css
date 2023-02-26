@@ -16,7 +16,7 @@
         @apply flex items-center
     }
     .text-warp {
-        @apply text-[24px] font-normal
+        @apply  text-[18px] md:text-[24px] font-normal
     }
     .nav-item {
         @apply text-[18px] font-normal opacity-90 hover:opacity-100 duration-300
@@ -31,7 +31,7 @@
         @apply flex flex-col justify-center items-center text-white
     }
     .img-warp {
-        @apply h-[50px] w-[50px]
+        @apply h-[40px] w-[40px] md:h-[50px] md:w-[50px]
     }
     .res{
         @apply hidden md:flex
