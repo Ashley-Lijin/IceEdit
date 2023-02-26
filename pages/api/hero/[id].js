@@ -3,26 +3,31 @@ import dbConnect from '@/utils/dbConnect'
 
 dbConnect()
 
-
 export default async function (req, res) {
-    const {method} = req
+    const {method,query:{id}} = req
 
-    // get post all
+    // get post
+    
     switch (method) {
-        case 'GET':
+        case 'PUT':
             try {
-                const heros = await hero.find({})
+                const heros = await heros.findByIdAndUpdate(id,req.body)
+
+                if (!heros) {
+                    res.status(400).json({succes:false})
+                }
+
                 res.status(200).json(heros)
             } catch (error) {
-                res.status(404).json({error : 'error 1 '})
+                res.status(404).json({error : 'error bro'})
             }
             break;
 
-            // post a new item
 
-            case 'POST':
+
+            case 'DELETE':
                 try {
-                    const heros = await hero.create(req.body)
+                    const heros = await hero.deleteOne({_id:id})
                     res.status(200).json(heros)
                 } catch (error) {
                     res.status(404).json({error : 'error '})

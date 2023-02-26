@@ -1,4 +1,4 @@
-import hero from '@/model/hero'
+import navbar from '@/model/navbar'
 import dbConnect from '@/utils/dbConnect'
 
 dbConnect()
@@ -11,8 +11,8 @@ export default async function (req, res) {
     switch (method) {
         case 'GET':
             try {
-                const heros = await hero.find({})
-                res.status(200).json(heros)
+                const nav = await navbar.find({})
+                res.status(200).json(nav)
             } catch (error) {
                 res.status(404).json({error : 'error 1 '})
             }
@@ -22,8 +22,8 @@ export default async function (req, res) {
 
             case 'POST':
                 try {
-                    const heros = await hero.create(req.body)
-                    res.status(200).json(heros)
+                    const nav = await navbar.create(req.body)
+                    res.status(200).json(nav)
                 } catch (error) {
                     res.status(404).json({error : 'error '})
                 }
