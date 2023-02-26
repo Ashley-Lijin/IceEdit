@@ -19,4 +19,4 @@ const heroSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.models.Hero || mongoose.model('Hero', heroSchema)
+module.exports = mongoose.models.hero || mongoose.model('hero', heroSchema)
