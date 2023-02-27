@@ -10,7 +10,7 @@ const Hero = () => {
   const [hero, setHero] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/hero")
+    axios.get("/api/hero")
       .then(res =>{
        setHero(res.data)
       })
@@ -22,7 +22,7 @@ const Hero = () => {
   const [soc, setSoc] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/socialMedia")
+    axios.get("/api/socialMedia")
       .then(res =>{
        setSoc(res.data)
       })

@@ -12,7 +12,7 @@ const Navbar = () => {
   const [nav, setnav] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/navbar")
+    axios.get("/api/navbar")
       .then(res =>{
        setnav(res.data)
       })
@@ -24,7 +24,7 @@ const Navbar = () => {
   const [logo, setlogo] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/logo")
+    axios.get("/api/logo")
       .then(res =>{
         setlogo(res.data)
         console.log('logo')
