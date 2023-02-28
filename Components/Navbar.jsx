@@ -42,8 +42,8 @@ const Navbar = () => {
           {logo.map(brand => {
             return(
               <motion.div initial={{opacity:0,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
-              <img src={brand.imgUrl} className='img-warp' draggable='false'/>
-              <h3 className='text-warp'>{brand.Name}</h3>
+              <img key={logo._id} src={brand.imgUrl} className='img-warp' draggable='false'/>
+              <h3 key={logo._id} className='text-warp'>{brand.Name}</h3>
             </motion.div>
             )
           })}
@@ -52,7 +52,7 @@ const Navbar = () => {
           {nav.map(navabr => {
             return(
               <div className='nav-i-pc nav-item'>
-                <Link href={navabr.navUrl}>{navabr.navItem}</Link>
+                <Link key={nav._id} href={navabr.navUrl}>{navabr.navItem}</Link>
               </div>
             )
           })}
@@ -68,8 +68,8 @@ const Navbar = () => {
   {logo.map(brand => {
     return(
       <motion.div initial={{opacity:0,x:-25}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
-        <img src={brand.imgUrl} className='img-warp' draggable='false'/>
-        <h3 className='text-warp' >{brand.Name}</h3>
+        <img key={logo._id} src={brand.imgUrl} className='img-warp' draggable='false'/>
+        <h3 key={logo._id} className='text-warp' >{brand.Name}</h3>
       </motion.div>
     )
   })}
@@ -87,7 +87,7 @@ const Navbar = () => {
   {nav.map(navabr => {
     return(
       <div className='nav-i-mob nav-item'>
-        <Link href={navabr.navUrl}>{navabr.navItem}</Link>
+        <Link key={nav._id} href={navabr.navUrl}>{navabr.navItem}</Link>
       </div>
     )
   })}

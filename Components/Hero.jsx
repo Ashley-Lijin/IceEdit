@@ -31,8 +31,6 @@ const Hero = () => {
       })
   }, [])
 
-  console.log(soc);
-
   return (
     <div className='stage-cointainer'>
         {hero.map(H => {
@@ -41,15 +39,16 @@ const Hero = () => {
                     <div className='main'>
                         <motion.div initial={{opacity:0,y:-100}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} className='about'>
                             <div className='about-him gap-1'>
-                                <h1 className='text-white'>{H.intro} </h1>
-                                <h1 className='name'>{H.name}</h1>
+                                <h1 key={hero._id} className='text-white'>{H.intro} </h1>
+                                <h1 key={hero._id} className='name'>{H.name}</h1>
                             </div>
-                            <h1 className='text-white'>{H.youAre}</h1>
+                            <h1 key={hero._id} className='text-white'>{H.youAre}</h1>
                         </motion.div>
                         <motion.div initial={{opacity:0,y:-100}} whileInView={{opacity:1,y:0}} transition={{duration:0.9}} >
-                            <img src={H.heroImg} className='hero-img-warp' />
+                            <img key={hero._id} src={H.heroImg} className='hero-img-warp' />
                         </motion.div>
                     </div>
+
                     <motion.div initial={{opacity:0,y:25,rotatex:180}} whileInView={{opacity:1,y:0,rotatex:0}}transition={{duration:1.3 ,delay:0.3}} className='button'>
                         {soc.map(socM => {
                             return(
@@ -59,6 +58,7 @@ const Hero = () => {
                             )
                         })}
                     </motion.div>
+
                 </div>
             )
         })}
