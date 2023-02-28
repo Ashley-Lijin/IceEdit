@@ -19,7 +19,7 @@
         @apply  text-[18px] md:text-[24px] font-normal
     }
     .nav-item {
-        @apply text-[18px] font-normal opacity-90 hover:opacity-100 duration-300
+        @apply text-[18px] font-normal opacity-80 hover:opacity-100 duration-300
     }
     .nav-i-mob{
         @apply  selection:visible md:hidden py-3

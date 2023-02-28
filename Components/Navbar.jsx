@@ -43,7 +43,9 @@ const Navbar = () => {
             return(
               <motion.div initial={{opacity:0,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:0.5, easeInOut}} className='logo-warp'>
               <img key={logo._id} src={brand.imgUrl} className='img-warp' draggable='false'/>
-              <h3 key={logo._id} className='text-warp'>{brand.Name}</h3>
+              <div className='hov'>
+                <h3 key={logo._id} className='text-warp'>{brand.Name}</h3>
+              </div>
             </motion.div>
             )
           })}
